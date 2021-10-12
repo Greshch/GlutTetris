@@ -4,12 +4,12 @@
 #include "view.h"
 #include "snake.h"
 
-int pause = 50;
+int pause = 350;
 
 
 void Renderer();
 void Tick();
-
+void Timer(int);
 
 
 
@@ -28,6 +28,7 @@ int main(int argc, char** argv)
 	glOrtho(0.0, COL, ROW, 0.0, -1.0, 1.0);
 
 	glutDisplayFunc(Renderer);
+	glutTimerFunc(pause, Timer, 0);
 	glutMainLoop();
 	return 0;
 }
@@ -44,4 +45,11 @@ void Renderer()
 void Tick()
 {
 	UpdateSnake();
+}
+
+void Timer(int = 0)
+{
+	Renderer();
+	Tick();
+	glutTimerFunc(pause, Timer, 0);
 }
