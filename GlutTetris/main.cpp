@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <GL/freeglut.h>
 #include "global_consts.h"
+#include "view.h"
 
 int pause = 50;
 
 void Renderer();
+
+
+
 
 int main(int argc, char** argv)
 {
@@ -26,6 +30,8 @@ int main(int argc, char** argv)
 void Renderer()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	DrawField();
 
 	glutSwapBuffers();
 }
