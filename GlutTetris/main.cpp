@@ -10,6 +10,7 @@ int pause = 350;
 void Renderer();
 void Tick();
 void Timer(int);
+void Keyboard(int key, int, int);
 
 
 
@@ -27,6 +28,7 @@ int main(int argc, char** argv)
 
 	glutDisplayFunc(Renderer);
 	glutTimerFunc(pause, Timer, 0);
+	glutSpecialFunc(Keyboard);
 	glutMainLoop();
 	return 0;
 }
@@ -50,4 +52,21 @@ void Timer(int = 0)
 	Renderer();
 	Tick();
 	glutTimerFunc(pause, Timer, 0);
+}
+
+void Keyboard(int key, int, int)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:		dir = LEFT;	break;
+
+	case GLUT_KEY_UP:		dir = UP;	break;
+
+	case GLUT_KEY_RIGHT:	dir = RIGHT;	break;
+
+	case GLUT_KEY_DOWN:		dir = DOWN;	break;
+
+	default:
+		break;
+	}
 }

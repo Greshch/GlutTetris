@@ -4,9 +4,9 @@
 
 Point snake[SNAKE_MAX_SIZE]
 { 
-	{10, 8},
-	{10, 9},
-	{10, 10}
+	{10, 12},
+	{10, 13},
+	{10, 14}
 };
 
 int snake_last = 2;
