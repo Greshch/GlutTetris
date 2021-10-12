@@ -12,15 +12,6 @@ Point snake[SNAKE_MAX_SIZE]
 int snake_last = 2;
 DIRECTION dir = UP;
 
-void DrawSnake()
-{
-	glColor3f(0.0, 1.0, 0.0);
-	for (size_t i = 0; i <= snake_last; i++)
-	{
-		glRectf(snake[i].x, snake[i].y, snake[i].x + 1, snake[i].y + 1);
-	}
-
-}
 
 void UpdateSnake()
 {

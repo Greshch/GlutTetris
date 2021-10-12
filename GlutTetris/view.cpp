@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include "view.h"
 #include "global_consts.h"
+#include "snake.h"
 
 void DrawField()
 {
@@ -18,4 +19,14 @@ void DrawField()
 		glVertex2f(x, ROW - 1);
 	}
 	glEnd();
+}
+
+void DrawSnake()
+{
+	glColor3f(0.0, 1.0, 0.0);
+	for (size_t i = 0; i <= snake_last; i++)
+	{
+		glRectf(snake[i].x, snake[i].y, snake[i].x + 1, snake[i].y + 1);
+	}
+
 }

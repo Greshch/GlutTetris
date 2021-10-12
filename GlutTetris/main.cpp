@@ -58,15 +58,14 @@ void Keyboard(int key, int, int)
 {
 	switch (key)
 	{
-	case GLUT_KEY_LEFT:		dir = LEFT;	break;
+	case GLUT_KEY_LEFT:		dir = LEFT;		break;
 
-	case GLUT_KEY_UP:		dir = UP;	break;
+	case GLUT_KEY_UP:		dir = UP;		break;
 
 	case GLUT_KEY_RIGHT:	dir = RIGHT;	break;
 
-	case GLUT_KEY_DOWN:		dir = DOWN;	break;
+	case GLUT_KEY_DOWN:		dir = DOWN;		break;
 
-	default:
-		break;
+	default:	break;
 	}
 }
