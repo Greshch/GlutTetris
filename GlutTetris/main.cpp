@@ -43,4 +43,5 @@ void Renderer()
 
 void Tick()
 {
+	UpdateSnake();
 }

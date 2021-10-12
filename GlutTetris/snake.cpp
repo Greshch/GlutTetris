@@ -5,6 +5,7 @@
 Point snake[SNAKE_MAX_SIZE]{ {0, 0} };
 
 int snake_last = 0;
+DIRECTION dir = UP;
 
 void DrawSnake()
 {
@@ -23,4 +24,8 @@ void UpdateSnake()
 		snake[i].x = snake[i - 1].x;
 		snake[i].y = snake[i - 1].y;
 	}
+	if (dir == DOWN)	snake[0].y += 1;
+	if (dir == LEFT)	snake[0].x -= 1;
+	if (dir == RIGHT)	snake[0].x += 1;
+	if (dir == UP)		snake[0].y -= 1;
 }
