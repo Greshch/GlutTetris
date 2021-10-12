@@ -2,16 +2,21 @@
 #include <GL/freeglut.h>
 #include "global_consts.h"
 #include "view.h"
+#include "snake.h"
 
 int pause = 50;
 
+
 void Renderer();
+void Tick();
 
 
 
 
 int main(int argc, char** argv)
 {
+	snake[0] = { 10, 8 };
+	
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(320, 26);
@@ -32,6 +37,10 @@ void Renderer()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	DrawField();
-
+	DrawSnake();
 	glutSwapBuffers();
+}
+
+void Tick()
+{
 }
