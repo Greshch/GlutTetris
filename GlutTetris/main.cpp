@@ -15,8 +15,6 @@ void Timer(int);
 
 int main(int argc, char** argv)
 {
-	snake[0] = { 10, 8 };
-	
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(320, 26);

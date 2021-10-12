@@ -2,9 +2,14 @@
 #include "snake.h"
 #include "global_consts.h"
 
-Point snake[SNAKE_MAX_SIZE]{ {0, 0} };
+Point snake[SNAKE_MAX_SIZE]
+{ 
+	{10, 8},
+	{10, 9},
+	{10, 10}
+};
 
-int snake_last = 0;
+int snake_last = 2;
 DIRECTION dir = UP;
 
 void DrawSnake()
