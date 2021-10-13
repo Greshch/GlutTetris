@@ -55,10 +55,12 @@ void Tick()
 		//printf("##x=%3d\ty=%3d\n", food.x, food.y);
 		FoodNew(snake, snake_last + 1);
 		++snake_last;
+		printf("#%3d\n", snake_last + 1);
 	}
-	if (HasSnakeItselfCollision())
+	int new_size = 0;
+	if (HasSnakeItselfCollision(new_size))
 	{
-		printf("x=%3d\ty=%3d\n", snake[0].x, snake[0].y);
+		snake_last = new_size;
 	}
 }
 
