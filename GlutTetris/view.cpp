@@ -7,16 +7,16 @@ void DrawField()
 {
 	glColor3f(0.0, 0.0, 1.0);
 	glBegin(GL_LINES);
-	for (size_t y = 1; y < ROW; y++)
+	for (size_t y = RANGE_UP; y <= RANGE_DOWN; y++)
 	{
-		glVertex2f(1.0, y);
-		glVertex2f(COL - 1, y);
+		glVertex2f(RANGE_LEFT, y);
+		glVertex2f(RANGE_RIGHT, y);
 	}
 	
-	for (size_t x = 1; x < COL; x++)
+	for (size_t x = RANGE_LEFT; x <= RANGE_RIGHT; x++)
 	{
-		glVertex2f(x, 1);
-		glVertex2f(x, ROW - 1);
+		glVertex2f(x, RANGE_UP);
+		glVertex2f(x, RANGE_DOWN);
 	}
 	glEnd();
 }

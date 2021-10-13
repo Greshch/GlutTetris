@@ -167,11 +167,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="food.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="snake.cpp" />
     <ClCompile Include="view.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="food.h" />
     <ClInclude Include="global_consts.h" />
     <ClInclude Include="snake.h" />
     <ClInclude Include="view.h" />
