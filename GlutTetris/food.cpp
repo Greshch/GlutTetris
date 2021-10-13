@@ -13,6 +13,7 @@ void FoodNew(Point obj[], int const obj_size)
 		int y = rand() % (RANGE_DOWN - RANGE_UP) + 1;
 		if (!FoodCollisionWithSnake(obj, obj_size))
 		{
+			food = { x, y };
 			return;
 		}
 	}

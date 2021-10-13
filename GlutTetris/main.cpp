@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <time.h>
 #include <GL/freeglut.h>
 #include "global_consts.h"
 #include "view.h"
 #include "snake.h"
+#include "food.h"
 
 int pause = 350;
 
@@ -16,6 +18,8 @@ void Keyboard(int key, int, int);
 
 int main(int argc, char** argv)
 {
+	srand(time(0));
+	FoodNew(snake, snake_last + 1);
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(320, 26);
@@ -39,6 +43,7 @@ void Renderer()
 
 	DrawField();
 	DrawSnake();
+	DrawFood();
 	glutSwapBuffers();
 }
 
