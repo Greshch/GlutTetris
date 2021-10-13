@@ -6,7 +6,7 @@
 #include "snake.h"
 #include "food.h"
 
-int pause = 350;
+int pause = 400;
 
 
 
@@ -73,10 +73,8 @@ void Tick()
 	UpdateSnake();
 	if (FoodCollisionWithSnake(snake, 1))
 	{
-		//printf("##x=%3d\ty=%3d\n", food.x, food.y);
 		FoodNew(snake, snake_last + 1);
 		++snake_last;
-		printf("#%3d\n", snake_last + 1);
 	}
 	
 	if (HasSnakeItselfCollision() || HasSnakeBorderCollision())
@@ -94,22 +92,27 @@ void Timer(int = 0)
 
 void Keyboard(int key, int, int)
 {
+	if (!IsValidDir(key))
+	{
+		printf("..Wrong direction!!..\n");
+		return;
+	}
 	switch (key)
 	{
 	case GLUT_KEY_LEFT:	
-		snake_dir = LEFT;		
+		snake_dir = GLUT_KEY_LEFT;		
 		break;
 							
 	case GLUT_KEY_UP:		
-		snake_dir = UP;		
+		snake_dir = GLUT_KEY_UP;		
 		break;
 							
 	case GLUT_KEY_RIGHT:	
-		snake_dir = RIGHT;	
+		snake_dir = GLUT_KEY_RIGHT;	
 		break;
 							
 	case GLUT_KEY_DOWN:		
-		snake_dir = DOWN;		
+		snake_dir = GLUT_KEY_DOWN;		
 		break;
 
 	default:	break;

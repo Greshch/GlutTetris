@@ -10,10 +10,13 @@ struct Point
 int const SNAKE_MAX_SIZE = 100;
 extern Point snake[SNAKE_MAX_SIZE];
 extern int snake_last;
-extern DIRECTION snake_dir;
+extern int snake_dir;
 extern bool is_update;
+extern int dx;
+extern int dy;
 
 void DrawSnake();
 void UpdateSnake();
 bool HasSnakeItselfCollision();
 bool HasSnakeBorderCollision();
+bool IsValidDir(int dir);
