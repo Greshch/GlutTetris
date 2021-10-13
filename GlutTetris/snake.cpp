@@ -10,7 +10,7 @@ Point snake[SNAKE_MAX_SIZE]
 };
 
 int snake_last = 2;
-DIRECTION dir = UP;
+DIRECTION snake_dir = UP;
 
 
 void UpdateSnake()
@@ -28,20 +28,19 @@ void UpdateSnake()
 		snake[i].x = snake[i - 1].x;
 		snake[i].y = snake[i - 1].y;
 	}
-	if (dir == DOWN)	snake[0].y += 1;
-	if (dir == LEFT)	snake[0].x -= 1;
-	if (dir == RIGHT)	snake[0].x += 1;
-	if (dir == UP)		snake[0].y -= 1;
+	if (snake_dir == DOWN)	snake[0].y += 1;
+	if (snake_dir == LEFT)	snake[0].x -= 1;
+	if (snake_dir == RIGHT)	snake[0].x += 1;
+	if (snake_dir == UP)		snake[0].y -= 1;
 }
 
-bool HasSnakeItselfCollision(int& new_size)
+bool HasSnakeItselfCollision()
 {
 	for (size_t i = 3; i <= snake_last; i++)
 	{
 		if (snake[0].x == snake[i].x &&
 			snake[0].y == snake[i].y)
 		{
-			new_size = i + 1;
 			return true;
 		}
 	}

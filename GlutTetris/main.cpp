@@ -9,7 +9,17 @@
 int pause = 350;
 
 
+
 void Renderer();
+//void RendererEnd();
+
+//int id_render = 0;
+//void(*renderers[2])()
+//{
+//	Renderer,
+//	RendererEnd
+//};
+
 void Tick();
 void Timer(int);
 void Keyboard(int key, int, int);
@@ -47,6 +57,13 @@ void Renderer()
 	glutSwapBuffers();
 }
 
+//void RendererEnd()
+//{
+//	glClear(GL_COLOR_BUFFER_BIT);
+//	
+//	glutSwapBuffers();
+//}
+
 void Tick()
 {
 	UpdateSnake();
@@ -57,10 +74,10 @@ void Tick()
 		++snake_last;
 		printf("#%3d\n", snake_last + 1);
 	}
-	int new_size = 0;
-	if (HasSnakeItselfCollision(new_size))
+	
+	if (HasSnakeItselfCollision())
 	{
-		snake_last = new_size;
+		
 	}
 }
 
@@ -75,13 +92,13 @@ void Keyboard(int key, int, int)
 {
 	switch (key)
 	{
-	case GLUT_KEY_LEFT:		dir = LEFT;		break;
-
-	case GLUT_KEY_UP:		dir = UP;		break;
-
-	case GLUT_KEY_RIGHT:	dir = RIGHT;	break;
-
-	case GLUT_KEY_DOWN:		dir = DOWN;		break;
+	case GLUT_KEY_LEFT:		snake_dir = LEFT;		break;
+							
+	case GLUT_KEY_UP:		snake_dir = UP;		break;
+							
+	case GLUT_KEY_RIGHT:	snake_dir = RIGHT;	break;
+							
+	case GLUT_KEY_DOWN:		snake_dir = DOWN;		break;
 
 	default:	break;
 	}
