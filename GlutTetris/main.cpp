@@ -56,6 +56,10 @@ void Tick()
 		FoodNew(snake, snake_last + 1);
 		++snake_last;
 	}
+	if (HasSnakeItselfCollision())
+	{
+		printf("x=%3d\ty=%3d\n", snake[0].x, snake[0].y);
+	}
 }
 
 void Timer(int = 0)

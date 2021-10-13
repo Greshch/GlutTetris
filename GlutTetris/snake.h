@@ -14,3 +14,4 @@ extern DIRECTION dir;
 
 void DrawSnake();
 void UpdateSnake();
+bool HasSnakeItselfCollision();

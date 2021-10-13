@@ -33,3 +33,16 @@ void UpdateSnake()
 	if (dir == RIGHT)	snake[0].x += 1;
 	if (dir == UP)		snake[0].y -= 1;
 }
+
+bool HasSnakeItselfCollision()
+{
+	for (size_t i = 3; i <= snake_last; i++)
+	{
+		if (snake[0].x == snake[i].x &&
+			snake[0].y == snake[i].y)
+		{
+			return true;
+		}
+	}
+	return false;
+}

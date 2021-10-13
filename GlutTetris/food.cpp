@@ -12,7 +12,7 @@ void FoodNew(Point obj[], int const obj_size)
 	{
 		int x = rand() % (RANGE_RIGHT - RANGE_LEFT) + 1;
 		int y = rand() % (RANGE_DOWN - RANGE_UP) + 1;
-		printf("x=%3d\ty=%3d\n", x, y);
+		//printf("x=%3d\ty=%3d\n", x, y);
 		food.x = x;
 		food.y = y;
 		if (!FoodCollisionWithSnake(obj, obj_size))
