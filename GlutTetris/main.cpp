@@ -50,6 +50,11 @@ void Renderer()
 void Tick()
 {
 	UpdateSnake();
+	if (FoodCollisionWithSnake(snake, 1))
+	{
+		//printf("##x=%3d\ty=%3d\n", food.x, food.y);
+		FoodNew(snake, snake_last + 1);
+	}
 }
 
 void Timer(int = 0)
