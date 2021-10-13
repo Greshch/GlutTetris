@@ -6,7 +6,7 @@
 #include "snake.h"
 #include "food.h"
 
-int pause = 400;
+int pause = 600;
 
 
 
@@ -80,6 +80,7 @@ void Tick()
 	if (HasSnakeItselfCollision() || HasSnakeBorderCollision())
 	{
 		is_update = false;
+		glutDestroyWindow(glutGetWindow());
 	}
 }
 
@@ -94,7 +95,7 @@ void Keyboard(int key, int, int)
 {
 	if (!IsValidDir(key))
 	{
-		printf("..Wrong direction!!..\n");
+		//printf("..Wrong direction!!..\n");
 		return;
 	}
 	switch (key)
@@ -113,6 +114,10 @@ void Keyboard(int key, int, int)
 							
 	case GLUT_KEY_DOWN:		
 		snake_dir = GLUT_KEY_DOWN;		
+		break;
+
+	case GLUT_KEY_F12:
+		glutDestroyWindow(glutGetWindow());
 		break;
 
 	default:	break;

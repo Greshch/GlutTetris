@@ -74,47 +74,34 @@ bool HasSnakeItselfCollision()
 
 bool IsValidDir(int dir)
 {
-	static int old_dir = dir;
-	//DebugPrintSnake(dir, old_dir, dx, dy);
-
-	if (
-		dir == GLUT_KEY_DOWN && dy == -1
-		||
-		dir == GLUT_KEY_LEFT && dx == 1
-		||
-		dir == GLUT_KEY_UP && dy == 1
-		||
-		dir == GLUT_KEY_RIGHT && dx == -1
-		
-		)
-	{
-		return false;
-	}
+	if (dir == GLUT_KEY_DOWN && dy == -1)	return false;
+	if (dir == GLUT_KEY_LEFT && dx == 1)	return false;
+	if (dir == GLUT_KEY_UP && dy == 1)	return false;
+	if (dir == GLUT_KEY_RIGHT && dx == -1)	return false;
 	
 	if (snake_dir == GLUT_KEY_DOWN && dir == GLUT_KEY_UP) return false;
 	if (snake_dir == GLUT_KEY_LEFT && dir == GLUT_KEY_RIGHT) return false;
 	if (snake_dir == GLUT_KEY_UP && dir == GLUT_KEY_DOWN) return false;
 	if (snake_dir == GLUT_KEY_RIGHT && dir == GLUT_KEY_LEFT) return false;
 
-	old_dir = dir;
 	return true;
 }
 
 bool HasSnakeBorderCollision()
 {
-	if (snake_dir == GLUT_KEY_LEFT && snake[0].x == RANGE_LEFT)
+	if (snake[0].x < RANGE_LEFT)
 	{
 		return true;
 	}
-	else if (snake_dir == GLUT_KEY_UP && snake[0].y == RANGE_UP)
+	else if (snake[0].y < RANGE_UP)
 	{
 		return true;
 	}
-	else if (snake_dir == GLUT_KEY_RIGHT && snake[0].x == RANGE_RIGHT - 1)
+	else if (snake[0].x > RANGE_RIGHT - 1)
 	{
 		return true;
 	}
-	else if (snake_dir == GLUT_KEY_DOWN && snake[0].y == RANGE_DOWN - 1)
+	else if (snake[0].y > RANGE_DOWN - 1)
 	{
 		return true;
 	}
