@@ -79,7 +79,7 @@ void Tick()
 		printf("#%3d\n", snake_last + 1);
 	}
 	
-	if (HasSnakeItselfCollision())
+	if (HasSnakeItselfCollision() || HasSnakeBorderCollision())
 	{
 		is_update = false;
 	}
@@ -96,13 +96,21 @@ void Keyboard(int key, int, int)
 {
 	switch (key)
 	{
-	case GLUT_KEY_LEFT:		snake_dir = LEFT;		break;
+	case GLUT_KEY_LEFT:	
+		snake_dir = LEFT;		
+		break;
 							
-	case GLUT_KEY_UP:		snake_dir = UP;		break;
+	case GLUT_KEY_UP:		
+		snake_dir = UP;		
+		break;
 							
-	case GLUT_KEY_RIGHT:	snake_dir = RIGHT;	break;
+	case GLUT_KEY_RIGHT:	
+		snake_dir = RIGHT;	
+		break;
 							
-	case GLUT_KEY_DOWN:		snake_dir = DOWN;		break;
+	case GLUT_KEY_DOWN:		
+		snake_dir = DOWN;		
+		break;
 
 	default:	break;
 	}

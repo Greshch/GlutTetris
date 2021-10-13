@@ -1,4 +1,5 @@
 #include <GL/freeglut.h>
+#include <stdio.h>
 #include "snake.h"
 #include "global_consts.h"
 
@@ -44,6 +45,27 @@ bool HasSnakeItselfCollision()
 		{
 			return true;
 		}
+	}
+	return false;
+}
+
+bool HasSnakeBorderCollision()
+{
+	if (snake_dir == LEFT && snake[0].x == RANGE_LEFT)
+	{
+		return true;
+	}
+	else if (snake_dir == UP && snake[0].y == RANGE_UP)
+	{
+		return true;
+	}
+	else if (snake_dir == RIGHT && snake[0].x == RANGE_RIGHT - 1)
+	{
+		return true;
+	}
+	else if (snake_dir == DOWN && snake[0].y == RANGE_DOWN - 1)
+	{
+		return true;
 	}
 	return false;
 }

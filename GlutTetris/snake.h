@@ -16,3 +16,4 @@ extern bool is_update;
 void DrawSnake();
 void UpdateSnake();
 bool HasSnakeItselfCollision();
+bool HasSnakeBorderCollision();
