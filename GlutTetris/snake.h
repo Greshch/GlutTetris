@@ -7,7 +7,7 @@ struct Point
 	int y;
 };
 
-int const SNAKE_MAX_SIZE = 100;
+int const SNAKE_MAX_SIZE = ROW * COL;
 extern Point snake[SNAKE_MAX_SIZE];
 extern int snake_last;
 extern int snake_dir;

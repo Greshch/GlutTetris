@@ -6,7 +6,8 @@
 #include "snake.h"
 #include "food.h"
 
-int pause = 600;
+int pause = 300;
+int score = 0;
 
 
 
@@ -54,6 +55,7 @@ void Renderer()
 	DrawField();
 	DrawSnake();
 	DrawFood();
+
 	glutSwapBuffers();
 }
 
@@ -75,6 +77,15 @@ void Tick()
 	{
 		FoodNew(snake, snake_last + 1);
 		++snake_last;
+		++score;
+
+		if (score && 0 == score % 10)
+		{
+			pause -= pause / 10;
+			system("cls");
+			printf("score: %d\n", score);
+			printf("time: %d\n", pause);
+		}
 	}
 	
 	if (HasSnakeItselfCollision() || HasSnakeBorderCollision())
