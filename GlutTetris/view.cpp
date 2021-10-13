@@ -2,6 +2,7 @@
 #include "view.h"
 #include "global_consts.h"
 #include "snake.h"
+#include "food.h"
 
 void DrawField()
 {
@@ -29,4 +30,10 @@ void DrawSnake()
 		glRectf(snake[i].x, snake[i].y, snake[i].x + 1, snake[i].y + 1);
 	}
 
+}
+
+void DrawFood()
+{
+	glColor3f(1.0, 0.5, 0.5);
+	glRectf(food.x, food.y, food.x + 1, food.y + 1);
 }
