@@ -54,6 +54,7 @@ void Tick()
 	{
 		//printf("##x=%3d\ty=%3d\n", food.x, food.y);
 		FoodNew(snake, snake_last + 1);
+		++snake_last;
 	}
 }
 

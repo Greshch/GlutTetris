@@ -15,6 +15,14 @@ DIRECTION dir = UP;
 
 void UpdateSnake()
 {
+	//Design draw (0,0)
+	if (snake_last < SNAKE_MAX_SIZE - 1)
+	{
+		snake[snake_last + 1].x = -1;
+		snake[snake_last + 1].y = -1;
+	}
+	
+	
 	for (int i = snake_last; i > 0; --i)
 	{
 		snake[i].x = snake[i - 1].x;
