@@ -11,6 +11,7 @@ Point snake[SNAKE_MAX_SIZE]
 
 int snake_last = 2;
 DIRECTION snake_dir = UP;
+bool is_update = true;
 
 
 void UpdateSnake()

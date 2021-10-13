@@ -66,6 +66,10 @@ void Renderer()
 
 void Tick()
 {
+	if (!is_update)
+	{
+		return;
+	}
 	UpdateSnake();
 	if (FoodCollisionWithSnake(snake, 1))
 	{
@@ -77,7 +81,7 @@ void Tick()
 	
 	if (HasSnakeItselfCollision())
 	{
-		
+		is_update = false;
 	}
 }
 
