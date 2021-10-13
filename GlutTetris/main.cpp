@@ -116,6 +116,10 @@ void Keyboard(int key, int, int)
 		snake_dir = GLUT_KEY_DOWN;		
 		break;
 
+	case GLUT_KEY_F11:
+		is_update = (!is_update);
+		break;
+
 	case GLUT_KEY_F12:
 		glutDestroyWindow(glutGetWindow());
 		break;
