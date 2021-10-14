@@ -4,7 +4,7 @@
 
 Tetramino t_buffer;
 int dx = 0;
-int dy = 0;
+int dy = 1;
 
 void SetTetramino(Tetramino& obj, int id, int left, int up)
 {

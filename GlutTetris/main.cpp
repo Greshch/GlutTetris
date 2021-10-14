@@ -12,13 +12,8 @@ Tetramino tetramino;
 int num = 0;
 bool is_rotate_tetramino = false;
 bool is_set_tetramino = false;
-bool is_move_tetramino = false;
-
-
 
 void Renderer();
-
-
 void Tick();
 void Timer(int);
 void Keyboard(int key, int, int);
@@ -61,28 +56,36 @@ void Renderer()
 
 void Tick()
 {
-	if (is_set_tetramino)
+	/*if (is_set_tetramino)
 	{
 		num++;
 		num = num % TETRAMINO_CNT;
 		SetTetramino(tetramino, num);
 		is_set_tetramino = false;
+	}*/
+
+	//is_move_tetramino = false;
+	WriteToBuffer(tetramino);
+	UpdateTetramino(GetBuffer());
+	if (HasCollisionWithField(GetBuffer()))
+	{
+		//printf("#COLLISION\n");
+		ResetKey();
+		//return;
+	}
+		
+	WriteToBuffer(tetramino);
+	UpdateTetramino(GetBuffer());
+	if (!HasCollisionWithField(GetBuffer()))
+	{
+			
+		UpdateTetramino(tetramino);
+	}
+	else
+	{
+		printf("ACHIVE DOWN Lets create new tetramino\n");
 	}
 
-	if (is_move_tetramino)
-	{
-		is_move_tetramino = false;
-		WriteToBuffer(tetramino);
-		UpdateTetramino(GetBuffer());
-		if (HasCollisionWithField(GetBuffer()))
-		{
-			printf("#COLLISION\n");
-			return;
-		}
-		UpdateTetramino(tetramino);
-		ResetKey();
-	}
-	
 	if (is_rotate_tetramino)
 	{
 		is_rotate_tetramino = false;
@@ -119,7 +122,6 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_LEFT:
 		//printf("LEFT\n");
-		is_move_tetramino = true;
 		KeyEvent(GLUT_KEY_LEFT);
 		break;
 	
@@ -130,7 +132,6 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_RIGHT:
 		//printf("RIGHT\n");
-		is_move_tetramino = true;
 		KeyEvent(GLUT_KEY_RIGHT);
 		break;
 
