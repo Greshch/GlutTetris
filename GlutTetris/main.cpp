@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <GL/freeglut.h>
+#include "global_consts.h"
+#include "tetromino.h"
+#include "view.h"
 
 
 int pause = 360;
