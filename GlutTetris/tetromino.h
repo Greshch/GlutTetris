@@ -12,6 +12,8 @@ int const TETRAMINO_CNT = 7;
 
 typedef Point Tetramino[TETRAMINO_SZ];
 extern Tetramino t_buffer;
+extern int dx;
+extern int dy;
 
 int const const tetraminos[TETRAMINO_CNT][TETRAMINO_SZ]
 {
@@ -37,6 +39,9 @@ enum NAMES
 
 void SetTetramino(Tetramino& obj, int id, int left = COL / 2 - 1, int up = FIELD_UP);
 void RotateTetramino(Tetramino& obj);
+void UpdateTetramino(Tetramino& obj);
+void KeyEvent(int key);
+void ResetKey();
 void WriteToBuffer(Tetramino const& src);
 void ReadFromBuffer(Tetramino& dest);
 Tetramino& GetBuffer();

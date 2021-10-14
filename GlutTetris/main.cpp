@@ -12,6 +12,7 @@ Tetramino tetramino;
 int num = 0;
 bool is_rotate_tetramino = false;
 bool is_set_tetramino = false;
+bool is_move_tetramino = false;
 
 
 
@@ -26,6 +27,7 @@ void Keyboard(int key, int, int);
 
 int main(int argc, char** argv)
 {
+	srand(time(0));
 	SetTetramino(tetramino, num);
 
 	glutInit(&argc, argv);
@@ -66,6 +68,20 @@ void Tick()
 		SetTetramino(tetramino, num);
 		is_set_tetramino = false;
 	}
+
+	if (is_move_tetramino)
+	{
+		is_move_tetramino = false;
+		WriteToBuffer(tetramino);
+		UpdateTetramino(GetBuffer());
+		if (HasCollisionWithField(GetBuffer()))
+		{
+			printf("#COLLISION\n");
+			return;
+		}
+		UpdateTetramino(tetramino);
+		ResetKey();
+	}
 	
 	if (is_rotate_tetramino)
 	{
@@ -103,6 +119,8 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_LEFT:
 		//printf("LEFT\n");
+		is_move_tetramino = true;
+		KeyEvent(GLUT_KEY_LEFT);
 		break;
 	
 	case GLUT_KEY_UP:
@@ -112,10 +130,12 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_RIGHT:
 		//printf("RIGHT\n");
+		is_move_tetramino = true;
+		KeyEvent(GLUT_KEY_RIGHT);
 		break;
 
 	case GLUT_KEY_DOWN:
-		is_set_tetramino = true;
+		//is_set_tetramino = true;
 		//printf("DOWN\n");
 		break;
 

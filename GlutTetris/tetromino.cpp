@@ -1,7 +1,10 @@
+#include <GL/freeglut.h>
 #include "tetromino.h"
 #include "global_consts.h"
 
 Tetramino t_buffer;
+int dx = 0;
+int dy = 0;
 
 void SetTetramino(Tetramino& obj, int id, int left, int up)
 {
@@ -30,14 +33,45 @@ void WriteToBuffer(Tetramino const& src)
 	CopyTetramino(t_buffer, src);
 }
 
+void UpdateTetramino(Tetramino& obj)
+{
+	for (size_t i = 0; i < TETRAMINO_SZ; i++)
+	{
+		obj[i].x += dx;
+		obj[i].y += dy;
+	}
+}
+
 void ReadFromBuffer(Tetramino& dest)
 {
 	CopyTetramino(dest, t_buffer);
 }
 
+void KeyEvent(int key)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		dx = -1;
+		break;
+	
+	case GLUT_KEY_RIGHT:
+		dx = 1;
+		break;
+
+	default:
+		break;
+	}
+}
+
 Tetramino& GetBuffer()
 {
 	return t_buffer;
+}
+
+void ResetKey()
+{
+	dx = 0;
 }
 
 
