@@ -51,3 +51,12 @@ void DebugPrintSnake(int dir, int dx, int dy)
 	printf("dir = %s\tdx = %d\tdy = %d\n", sdir.c_str(), dx, dy);
 	
 }
+
+void ConsoleScorePrint(int score, int speed)
+{
+	system("cls");
+	printf("score: %d\n", score);
+	printf("speed: %d\n", speed);
+	printf("Pause F11\n");
+	printf("Exit  F12\n");
+}
