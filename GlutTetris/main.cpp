@@ -9,7 +9,6 @@ int pause = 360;
 int score = 0;
 int speed = 10;
 Tetramino tetramino;
-int num = 0;
 bool is_rotate_tetramino = false;
 bool is_set_tetramino = false;
 
@@ -23,7 +22,7 @@ void Keyboard(int key, int, int);
 int main(int argc, char** argv)
 {
 	srand(time(0));
-	SetTetramino(tetramino, num);
+	NewTetramino(tetramino);
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
@@ -84,6 +83,7 @@ void Tick()
 	else
 	{
 		printf("ACHIVE DOWN Lets create new tetramino\n");
+		NewTetramino(tetramino);
 	}
 
 	if (is_rotate_tetramino)

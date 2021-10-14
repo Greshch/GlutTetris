@@ -15,6 +15,12 @@ void SetTetramino(Tetramino& obj, int id, int left, int up)
 	}
 }
 
+void NewTetramino(Tetramino& obj)
+{
+	int rndm_id = rand() % TETRAMINO_CNT;
+	SetTetramino(obj, rndm_id);
+}
+
 void RotateTetramino(Tetramino& obj)
 {
 	int Xo = obj[1].x;

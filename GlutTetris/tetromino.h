@@ -37,6 +37,7 @@ enum NAMES
 	LE	//L
 };
 
+void NewTetramino(Tetramino& obj);
 void SetTetramino(Tetramino& obj, int id, int left = COL / 2 - 1, int up = FIELD_UP);
 void RotateTetramino(Tetramino& obj);
 void UpdateTetramino(Tetramino& obj);
