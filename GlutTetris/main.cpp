@@ -10,7 +10,7 @@ int score = 0;
 int speed = 10;
 Tetramino tetramino;
 bool is_rotate_tetramino = false;
-bool is_set_tetramino = false;
+bool is_down_key_pressed = false;
 
 void Renderer();
 void Tick();
@@ -55,36 +55,31 @@ void Renderer()
 
 void Tick()
 {
-	/*if (is_set_tetramino)
-	{
-		num++;
-		num = num % TETRAMINO_CNT;
-		SetTetramino(tetramino, num);
-		is_set_tetramino = false;
-	}*/
-
-	//is_move_tetramino = false;
+	//-----------Move Begin
 	WriteToBuffer(tetramino);
 	UpdateTetramino(GetBuffer());
+	// Check colision with left or right side mainly
 	if (HasCollisionWithField(GetBuffer()))
 	{
-		//printf("#COLLISION\n");
+		// Skip key pressed
 		ResetKey();
-		//return;
 	}
 		
 	WriteToBuffer(tetramino);
 	UpdateTetramino(GetBuffer());
+	// Has achived DOWN or last Line
 	if (!HasCollisionWithField(GetBuffer()))
-	{
-			
+	{	
 		UpdateTetramino(tetramino);
 	}
 	else
 	{
 		printf("ACHIVE DOWN Lets create new tetramino\n");
+		is_down_key_pressed = false;
 		NewTetramino(tetramino);
 	}
+	ResetKey();
+	//-----Move End
 
 	if (is_rotate_tetramino)
 	{
@@ -104,6 +99,11 @@ void Timer(int = 0)
 {
 	Renderer();
 	Tick();
+	if (is_down_key_pressed)
+	{
+		glutTimerFunc(pause / 10, Timer, 0);
+		return;
+	}
 	glutTimerFunc(pause, Timer, 0);
 }
 
@@ -136,8 +136,8 @@ void Keyboard(int key, int, int)
 		break;
 
 	case GLUT_KEY_DOWN:
-		//is_set_tetramino = true;
 		//printf("DOWN\n");
+		is_down_key_pressed = true;
 		break;
 
 	default:
