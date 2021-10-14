@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include "view.h"
 #include "global_consts.h"
+#include "tetromino.h"
 
 void DrawField()
 {
@@ -19,3 +20,14 @@ void DrawField()
 	}
 	glEnd();
 }
+
+void DrawTetramino(Tetramino const& obj)
+{
+	glColor3f(0.0, 1.0, 0.0);
+	for (size_t i = 0; i < TETRAMINO_SZ; i++)
+	{
+		glRectf(obj[i].x, obj[i].y, obj[i].x + 1, obj[i].y + 1);
+	}
+}
+
+
