@@ -64,5 +64,34 @@ void Timer(int = 0)
 
 void Keyboard(int key, int, int)
 {
+	switch (key)
+	{
+	case GLUT_KEY_F11:
+		printf("F11 pause\n");
+		break;
+
+	case GLUT_KEY_F12:
+		printf("F12 exit\n");
+		exit(0);
+		break;
+
+	case GLUT_KEY_LEFT:
+		printf("LEFT\n");
+		break;
 	
+	case GLUT_KEY_UP:
+		printf("UP\n");
+		break;
+
+	case GLUT_KEY_RIGHT:
+		printf("RIGHT\n");
+		break;
+
+	case GLUT_KEY_DOWN:
+		printf("DOWN\n");
+		break;
+
+	default:
+		break;
+	}
 }
