@@ -18,28 +18,5 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="view.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="snake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="global_consts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="view.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="snake.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="food.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
