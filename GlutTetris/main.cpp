@@ -8,7 +8,7 @@
 
 int pause = 360;
 int score = 0;
-int speed = 0;
+int speed = 10;
 
 
 
@@ -81,11 +81,11 @@ void Tick()
 		++snake_last;
 		++score;
 
-		if (score && 0 == score % 10)
+		if (score && 0 == score % 5)
 		{
 			pause -= pause / 10;
 		}
-		speed = 710 / pause;
+		speed = 3600 / pause;
 	}
 	
 	if (HasSnakeItselfCollision() || HasSnakeBorderCollision())
