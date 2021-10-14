@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0.0, COL, ROW, 0.0, -1.0, 1.0);
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(1.0, 1.0, 0.0, 1.0);
 
 	glutDisplayFunc(Renderer);
 	glutTimerFunc(pause, Timer, 0);
@@ -44,6 +44,7 @@ void Renderer()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	DrawField();
 	
 	glutSwapBuffers();
 }
