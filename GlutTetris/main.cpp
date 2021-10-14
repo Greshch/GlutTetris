@@ -5,10 +5,13 @@
 #include "tetromino.h"
 #include "view.h"
 
-
 int pause = 360;
 int score = 0;
 int speed = 10;
+Tetramino tetramino;
+int num = 0;
+bool is_rotate_tetramino = false;
+bool is_set_tetramino = false;
 
 
 
@@ -23,6 +26,8 @@ void Keyboard(int key, int, int);
 
 int main(int argc, char** argv)
 {
+	SetTetramino(tetramino, num);
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(600, 32);
@@ -45,6 +50,7 @@ void Renderer()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	DrawField();
+	DrawTetramino(tetramino);
 	
 	glutSwapBuffers();
 }
@@ -53,7 +59,26 @@ void Renderer()
 
 void Tick()
 {
+	if (is_set_tetramino)
+	{
+		num++;
+		num = num % TETRAMINO_CNT;
+		SetTetramino(tetramino, num);
+		is_set_tetramino = false;
+	}
 	
+	if (is_rotate_tetramino)
+	{
+		is_rotate_tetramino = false;
+		WriteToBuffer(tetramino);
+		RotateTetramino(GetBuffer());
+		if (HasCollisionWithField(GetBuffer()))
+		{
+			printf("#COLLISION\n");
+			return;
+		}
+		RotateTetramino(tetramino);
+	}
 }
 
 void Timer(int = 0)
@@ -68,28 +93,30 @@ void Keyboard(int key, int, int)
 	switch (key)
 	{
 	case GLUT_KEY_F11:
-		printf("F11 pause\n");
+		//printf("F11 pause\n");
 		break;
 
 	case GLUT_KEY_F12:
-		printf("F12 exit\n");
+		//printf("F12 exit\n");
 		exit(0);
 		break;
 
 	case GLUT_KEY_LEFT:
-		printf("LEFT\n");
+		//printf("LEFT\n");
 		break;
 	
 	case GLUT_KEY_UP:
-		printf("UP\n");
+		is_rotate_tetramino = true;
+		//printf("UP\n");
 		break;
 
 	case GLUT_KEY_RIGHT:
-		printf("RIGHT\n");
+		//printf("RIGHT\n");
 		break;
 
 	case GLUT_KEY_DOWN:
-		printf("DOWN\n");
+		is_set_tetramino = true;
+		//printf("DOWN\n");
 		break;
 
 	default:
