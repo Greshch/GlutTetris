@@ -87,10 +87,15 @@ void Tick()
 	}
 	else
 	{
-		printf("ACHIVE DOWN Lets create new tetramino\n");
+		//printf("ACHIVE DOWN Lets create new tetramino\n");
 		is_down_key_pressed = false;
 		MergeTetramino(field, tetramino);
 		NewTetramino(tetramino);
+		if (HasCollisionWithField(tetramino, field) && tetramino[0].y == 1)
+		{
+			//printf("NEW y = %d\n", tetramino[0].y);
+			is_over = true;
+		}
 	}
 	// Unless permanetly shift tetramion
 	ResetKey();
@@ -103,7 +108,7 @@ void Tick()
 		RotateTetramino(GetBuffer());
 		if (HasCollisionWithField(GetBuffer(), field))
 		{
-			printf("#COLLISION\n");
+			//printf("#COLLISION\n");
 			return;
 		}
 		RotateTetramino(tetramino);
