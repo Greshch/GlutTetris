@@ -61,7 +61,7 @@ void Tick()
 	WriteToBuffer(tetramino);
 	UpdateTetramino(GetBuffer());
 	// Check colision with left or right side mainly
-	if (HasCollisionWithField(GetBuffer()))
+	if (HasCollisionWithField(GetBuffer(), field))
 	{
 		// Skip key pressed
 		ResetKey();
@@ -70,7 +70,7 @@ void Tick()
 	WriteToBuffer(tetramino);
 	UpdateTetramino(GetBuffer());
 	// Has achived DOWN or last Line
-	if (!HasCollisionWithField(GetBuffer()))
+	if (!HasCollisionWithField(GetBuffer(), field))
 	{	
 		UpdateTetramino(tetramino);
 	}
@@ -78,6 +78,7 @@ void Tick()
 	{
 		printf("ACHIVE DOWN Lets create new tetramino\n");
 		is_down_key_pressed = false;
+		MergeTetramino(field, tetramino);
 		NewTetramino(tetramino);
 	}
 	ResetKey();
@@ -88,7 +89,7 @@ void Tick()
 		is_rotate_tetramino = false;
 		WriteToBuffer(tetramino);
 		RotateTetramino(GetBuffer());
-		if (HasCollisionWithField(GetBuffer()))
+		if (HasCollisionWithField(GetBuffer(), field))
 		{
 			printf("#COLLISION\n");
 			return;
