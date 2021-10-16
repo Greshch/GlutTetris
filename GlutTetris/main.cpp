@@ -6,7 +6,7 @@
 #include "view.h"
 #include "field.h"
 
-int pause = 360;
+int pause = 720;
 int score = 0;
 int speed = 10;
 Tetramino tetramino;

@@ -1,4 +1,5 @@
 #include <GL/freeglut.h>
+#include <stdio.h>
 #include "tetromino.h"
 #include "global_consts.h"
 #include "field.h"
@@ -114,5 +115,15 @@ bool HasCollisionWithField(Tetramino const& obj, Field const& field)
 {
 	if (HasCollisionWithFrame(obj, field)) return true;
 
+	for (size_t i = 0; i < TETRAMINO_SZ; i++)
+	{
+		int x = obj[i].x;
+		int y = obj[i].y;
+		if (field[y][x] == 1)
+		{
+			//printf("x = %d\ty =%d\n", x, y);
+			return true;
+		}
+	}
 	return false;
 }
