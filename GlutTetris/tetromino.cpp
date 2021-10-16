@@ -91,7 +91,7 @@ void CopyTetramino(Tetramino& dest, Tetramino const& src)
 	}
 }
 
-bool HasCollisionWithField(Tetramino const& obj, Field const& field)
+bool HasCollisionWithFrame(Tetramino const& obj, Field const& field)
 {
 	for (size_t i = 0; i < TETRAMINO_SZ; i++)
 	{
@@ -107,5 +107,12 @@ bool HasCollisionWithField(Tetramino const& obj, Field const& field)
 			return true;
 		}
 	}
+	return false;
+}
+
+bool HasCollisionWithField(Tetramino const& obj, Field const& field)
+{
+	if (HasCollisionWithFrame(obj, field)) return true;
+
 	return false;
 }

@@ -51,5 +51,6 @@ void ReadFromBuffer(Tetramino& dest);
 Tetramino& GetBuffer();
 static void CopyTetramino(Tetramino& dest, Tetramino const& src);
 bool HasCollisionWithField(Tetramino const& obj, Field const& field);
+static bool HasCollisionWithFrame(Tetramino const& obj, Field const& field);
 
 
