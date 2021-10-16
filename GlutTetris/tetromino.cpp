@@ -91,7 +91,7 @@ void CopyTetramino(Tetramino& dest, Tetramino const& src)
 	}
 }
 
-bool HasCollisionWithField(/*Field const& field,*/ Tetramino const& obj)
+bool HasCollisionWithField(Tetramino const& obj, Field const& field)
 {
 	for (size_t i = 0; i < TETRAMINO_SZ; i++)
 	{

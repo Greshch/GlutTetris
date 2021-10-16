@@ -1,6 +1,8 @@
 #pragma once
 #include "global_consts.h"
-#include "field.h"
+//#include "field.h"
+
+typedef int Field[ROW][COL];
 
 struct Point
 {
@@ -48,6 +50,6 @@ void WriteToBuffer(Tetramino const& src);
 void ReadFromBuffer(Tetramino& dest);
 Tetramino& GetBuffer();
 static void CopyTetramino(Tetramino& dest, Tetramino const& src);
-bool HasCollisionWithField(/*Field const& field,*/ Tetramino const& obj);
+bool HasCollisionWithField(Tetramino const& obj, Field const& field);
 
 
