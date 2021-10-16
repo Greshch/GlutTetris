@@ -14,6 +14,7 @@ Field field{ 0 };
 bool is_rotate_tetramino = false;
 bool is_down_key_pressed = false;
 bool is_over = false;
+bool is_pause = false;
 
 void Renderer();
 void Tick();
@@ -58,6 +59,10 @@ void Renderer()
 
 void Tick()
 {
+	if (is_pause)
+	{
+		return;
+	}
 	//Check exit:
 	if (is_over)
 	{
@@ -123,6 +128,7 @@ void Keyboard(int key, int, int)
 	{
 	case GLUT_KEY_F11:
 		//printf("F11 pause\n");
+		is_pause = !is_pause;
 		break;
 
 	case GLUT_KEY_F12:
