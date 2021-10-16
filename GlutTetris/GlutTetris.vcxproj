@@ -167,11 +167,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="field.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tetromino.cpp" />
     <ClCompile Include="view.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="field.h" />
     <ClInclude Include="global_consts.h" />
     <ClInclude Include="tetromino.h" />
     <ClInclude Include="view.h" />

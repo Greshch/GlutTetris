@@ -4,6 +4,7 @@
 #include "global_consts.h"
 #include "tetromino.h"
 #include "view.h"
+#include "field.h"
 
 int pause = 360;
 int score = 0;

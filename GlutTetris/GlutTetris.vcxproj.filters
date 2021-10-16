@@ -24,6 +24,9 @@
     <ClCompile Include="tetromino.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="field.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global_consts.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="view.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
