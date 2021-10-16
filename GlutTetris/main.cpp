@@ -13,6 +13,7 @@ Tetramino tetramino;
 Field field{ 0 };
 bool is_rotate_tetramino = false;
 bool is_down_key_pressed = false;
+bool is_over = false;
 
 void Renderer();
 void Tick();
@@ -57,6 +58,11 @@ void Renderer()
 
 void Tick()
 {
+	//Check exit:
+	if (is_over)
+	{
+		exit(0);
+	}
 	//-----------Move Begin
 	WriteToBuffer(tetramino);
 	UpdateTetramino(GetBuffer());
@@ -121,7 +127,8 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_F12:
 		//printf("F12 exit\n");
-		exit(0);
+		//exit(0);
+		is_over = true;
 		break;
 
 	case GLUT_KEY_LEFT:
