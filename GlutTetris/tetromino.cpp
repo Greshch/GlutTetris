@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include "tetromino.h"
 #include "global_consts.h"
+#include "field.h"
 
 Tetramino t_buffer;
 int dx = 0;
@@ -90,7 +91,7 @@ void CopyTetramino(Tetramino& dest, Tetramino const& src)
 	}
 }
 
-bool HasCollisionWithField(Tetramino const& obj)
+bool HasCollisionWithField(/*Field const& field,*/ Tetramino const& obj)
 {
 	for (size_t i = 0; i < TETRAMINO_SZ; i++)
 	{
