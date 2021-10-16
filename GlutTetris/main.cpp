@@ -10,6 +10,7 @@ int pause = 360;
 int score = 0;
 int speed = 10;
 Tetramino tetramino;
+Field field{ 0 };
 bool is_rotate_tetramino = false;
 bool is_down_key_pressed = false;
 
@@ -46,7 +47,7 @@ void Renderer()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	DrawField();
+	DrawField(field);
 	DrawTetramino(tetramino);
 	
 	glutSwapBuffers();
