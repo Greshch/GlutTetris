@@ -53,6 +53,8 @@ void ConsoleScorePrint(int score, int speed)
 	printf("score: %d\n", score);
 	printf("speed: %d\n", speed);
 	printf("-------------------\n");
+	printf("exit: F12\n");
+	printf("pause: F11\n");
 }
 
 
