@@ -6,9 +6,9 @@
 #include "view.h"
 #include "field.h"
 
-int pause = 720;
-int score = 0;
-int speed = 10;
+int pause = 1200;
+extern int score;
+int speed = 1;
 Tetramino tetramino;
 Field field{ 0 };
 bool is_rotate_tetramino = false;
@@ -51,6 +51,7 @@ void Renderer()
 
 	DrawField(field);
 	DrawTetramino(tetramino);
+	ConsoleScorePrint(score, speed);
 	
 	glutSwapBuffers();
 }
@@ -100,6 +101,11 @@ void Tick()
 		if (ErasedLineFill(field))
 		{
 			UpdateField(field);
+			if (score && score % 5 == 0)
+			{
+				++speed;
+				pause -= pause / 10;
+			}
 		}
 
 		if (HasCollisionWithField(tetramino, field) && tetramino[0].y == 1)
@@ -155,6 +161,7 @@ void Keyboard(int key, int, int)
 
 	case GLUT_KEY_LEFT:
 		//printf("LEFT\n");
+		is_rotate_tetramino = false;
 		KeyEvent(GLUT_KEY_LEFT);
 		break;
 	

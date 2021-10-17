@@ -1,4 +1,5 @@
 #include <GL/freeglut.h>
+#include <stdio.h>
 #include "view.h"
 #include "global_consts.h"
 #include "tetromino.h"
@@ -43,6 +44,15 @@ void DrawTetramino(Tetramino const& obj)
 	{
 		glRectf(obj[i].x, obj[i].y, obj[i].x + 1, obj[i].y + 1);
 	}
+}
+
+void ConsoleScorePrint(int score, int speed)
+{
+	system("cls");
+	printf("-------------------\n");
+	printf("score: %d\n", score);
+	printf("speed: %d\n", speed);
+	printf("-------------------\n");
 }
 
 

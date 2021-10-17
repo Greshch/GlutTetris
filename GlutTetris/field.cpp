@@ -2,6 +2,8 @@
 #include "global_consts.h"
 #include "tetromino.h"
 
+int score = 0;
+
 void MergeTetramino(Field& field,Tetramino const& tetramino)
 {
 	for (size_t i = 0; i < TETRAMINO_SZ; i++)
@@ -29,6 +31,7 @@ bool ErasedLineFill(Field& field)
 		if (IsThisLineFill(field, line))
 		{
 			//EraseLineField(field, line);
+			++score;
 			res = true;
 		}
 	}
