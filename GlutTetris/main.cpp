@@ -91,6 +91,13 @@ void Tick()
 		is_down_key_pressed = false;
 		MergeTetramino(field, tetramino);
 		NewTetramino(tetramino);
+
+		system("cls");
+		for (size_t i = FIELD_UP; i < FIELD_DOWN; i++)
+		{
+			printf("%d line is field - > %d\n", i, IsThisLineFill(field, i));
+		}
+
 		if (HasCollisionWithField(tetramino, field) && tetramino[0].y == 1)
 		{
 			//printf("NEW y = %d\n", tetramino[0].y);
@@ -121,7 +128,7 @@ void Timer(int = 0)
 	Tick();
 	if (is_down_key_pressed)
 	{
-		glutTimerFunc(pause / 10, Timer, 0);
+		glutTimerFunc(pause / 5, Timer, 0);
 		return;
 	}
 	glutTimerFunc(pause, Timer, 0);
