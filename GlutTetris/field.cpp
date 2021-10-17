@@ -20,3 +20,29 @@ bool IsThisLineFill(Field const& field, int line)
 	}
 	return true;
 }
+
+bool UpdateField(Field& field)
+{
+	bool res = false;
+	for (size_t line = FIELD_UP; line < FIELD_DOWN;)
+	{
+		if (IsThisLineFill(field, line))
+		{
+
+		}
+		else
+		{
+
+		}
+
+	}
+	return res;
+}
+
+void EraseLineField(Field& field, int line)
+{
+	for (size_t i = FIELD_LEFT; i < FIELD_RIGHT; i++)
+	{
+		field[line][i] = 0;
+	}
+}
