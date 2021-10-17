@@ -97,6 +97,7 @@ void Tick()
 		{
 			printf("%d line is field - > %d\n", i, IsThisLineFill(field, i));
 		}*/
+		ErasedLineFill(field);
 
 		if (HasCollisionWithField(tetramino, field) && tetramino[0].y == 1)
 		{

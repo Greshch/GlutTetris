@@ -21,22 +21,35 @@ bool IsThisLineFill(Field const& field, int line)
 	return true;
 }
 
-bool UpdateField(Field& field)
+bool ErasedLineFill(Field& field)
 {
 	bool res = false;
-	for (size_t line = FIELD_UP; line < FIELD_DOWN;)
+	for (size_t line = FIELD_DOWN - 1; line > FIELD_UP; --line)
 	{
 		if (IsThisLineFill(field, line))
 		{
-
+			EraseLineField(field, line);
+			res = true;
 		}
-		else
-		{
-
-		}
-
 	}
 	return res;
+}
+
+bool IsThisLineEmpty(Field const& field, int line)
+{
+	for (size_t i = FIELD_LEFT; i < FIELD_RIGHT; i++)
+	{
+		if (field[line][i])	return false;
+	}
+	return true;
+}
+
+void CopyLineFromTo(Field& field, int dest, int src)
+{
+	for (size_t i = FIELD_LEFT; i < FIELD_RIGHT; i++)
+	{
+		field[dest][i] = field[src][i];
+	}
 }
 
 void EraseLineField(Field& field, int line)
@@ -46,3 +59,5 @@ void EraseLineField(Field& field, int line)
 		field[line][i] = 0;
 	}
 }
+
+
