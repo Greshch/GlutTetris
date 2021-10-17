@@ -42,6 +42,29 @@ int main(int argc, char** argv)
 	glutTimerFunc(pause, Timer, 0);
 	glutSpecialFunc(Keyboard);
 	glutMainLoop();
+	/*int const SZ = 10;
+	int a[SZ] { 0, 0, 1, 0, 2, 0, 0, 3, 0, 0 };
+	int b[SZ] { 0 };
+	int id = SZ - 1;
+	for (int i = SZ - 1; i >= 0; i--)
+	{
+		printf("%3d", a[i]);
+	}
+	printf("\n");
+
+	for (int i = SZ - 1; i >= 0; i--)
+	{
+		if (a[i])
+		{
+			b[id--] = a[i];
+		}
+	}
+
+	for (int i = SZ - 1; i >= 0; i--)
+	{
+		printf("%3d", b[i]);
+	}
+	printf("\n");*/
 	return 0;
 }
 
@@ -97,7 +120,10 @@ void Tick()
 		{
 			printf("%d line is field - > %d\n", i, IsThisLineFill(field, i));
 		}*/
-		ErasedLineFill(field);
+		if (ErasedLineFill(field))
+		{
+			UpdateField(field);
+		}
 
 		if (HasCollisionWithField(tetramino, field) && tetramino[0].y == 1)
 		{

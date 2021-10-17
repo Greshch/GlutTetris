@@ -8,6 +8,7 @@ typedef int Field[ROW][COL];
 void MergeTetramino(Field& field, Tetramino const& tetramino);
 bool IsThisLineFill(Field const& field, int line);
 bool ErasedLineFill(Field& field);
+void UpdateField(Field& field);
 bool IsThisLineEmpty(Field const& field, int line);
-void CopyLineFromTo(Field& field, int dest, int src);
+void CopyLineFromTo(int* dest, int* src);
 void EraseLineField(Field& field, int line);
